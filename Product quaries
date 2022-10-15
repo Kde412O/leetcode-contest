@@ -1,0 +1,46 @@
+productQueries(int n, vector<vector<int>>& queries) {
+        vector<long> ar;
+
+    for(int i=0;i<=31;i++)
+
+    {
+
+        if(n & (1<<i))                                              
+
+            ar.push_back((1<<i));
+
+    }
+
+    
+
+    int mod = (1e9)+7;
+
+    vector<int> ans;
+
+    for(int i=0;i<queries.size();i++)
+
+    {
+
+        int l = queries[i][0];
+
+        int r = queries[i][1];
+
+        
+
+        int res=1;
+
+        for(int i=l;i<=r;i++)
+
+            res =  (res*ar[i])%mod;
+
+        
+
+        ans.push_back(res);
+
+    }
+
+    
+
+    return ans;
+    }
+};
